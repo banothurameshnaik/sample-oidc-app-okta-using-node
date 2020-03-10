@@ -1,6 +1,8 @@
+require('dotenv').config();
+
 module.exports = {
-    oktaBaseUrl: 'https://gohuddl.okta.com/oauth2',
-    oktaClientId: '0oa3777ge5E3VroZz4x6',
-    oktaRedirectUrl: 'https://ramesh-b2gx.localhost.run/login/callback',
-    accessTokenKey: 'access_token',
+    oktaBaseUrl: process.env.OKTA_BASE_URL,
+    oktaClientId: process.env.OKTA_CLINET_ID,
+    oktaRedirectUrl: process.env.OKTA_REDIRECT_URL,
+    accessTokenKey: process.env.ACCESS_TOKEN_KEY ? process.env.ACCESS_TOKEN_KEY : 'access_token',
 };
