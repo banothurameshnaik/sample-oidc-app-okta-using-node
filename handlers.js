@@ -29,6 +29,7 @@ const callbackHandler = (req, res) => {
     if (req.body.access_token) {
         // Set the access_token to localStorage
         // localStorage.setItem(accessTokenKey, req.body.access_token);
+        console.log(req.body);
         res.cookie(accessTokenKey, req.body.access_token);
         console.log('Login Success, redirecting user page', req.body.access_token);
         return res.redirect('/');
@@ -64,7 +65,7 @@ const getUserProfile = async (access_token) => {
         return response.data;
     } catch (error) {
         console.log('Error occurred while getting - No access token found', access_token, error);
-        throw error;
+        return {};
     }
 }
 
